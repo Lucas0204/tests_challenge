@@ -51,7 +51,7 @@ describe('Get balance use case', () => {
     expect(balance.statement[0]).toEqual(statement);
   })
 
-  it('should not be able to get balance of user that does not exists', async () => {
+  it('should not be able to get balance of user that does not exists', () => {
     expect(async () => {
       await getBalanceUseCase.execute({
         user_id: 'user_does_not_exist'

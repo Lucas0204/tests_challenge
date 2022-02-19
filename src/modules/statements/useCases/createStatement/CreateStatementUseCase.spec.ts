@@ -45,7 +45,7 @@ describe('Create statement use case', () => {
     expect(statement.user_id).toBe(user.id);
   })
 
-  it('should not be able to create a statement to user that does not exists', async () => {
+  it('should not be able to create a statement to user that does not exists', () => {
     expect(async () => {
       await createStatementUseCase.execute({
         user_id: 'user_does_not_exist',
@@ -56,7 +56,7 @@ describe('Create statement use case', () => {
     }).rejects.toBeInstanceOf(CreateStatementError.UserNotFound);
   })
 
-  it('should not be able to create a statement of withdraw with insufficient funds', async () => {
+  it('should not be able to create a statement of withdraw with insufficient funds', () => {
     expect(async () => {
       const user = await usersRepositoryInMemory.create({
         name: 'Test name',

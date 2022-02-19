@@ -48,7 +48,7 @@ describe('Get statement operation use case', () => {
     expect(statementOperation).toEqual(statement);
   })
 
-  it('should not be able to get statement operation of user that does not exist', async () => {
+  it('should not be able to get statement operation of user that does not exist', () => {
     expect(async () => {
       const statement = await statementsRepositoryInMemory.create({
         user_id: 'some_id',
@@ -64,7 +64,7 @@ describe('Get statement operation use case', () => {
     }).rejects.toBeInstanceOf(GetStatementOperationError.UserNotFound);
   })
 
-  it('should not be able to get statement operation of user that does not exist', async () => {
+  it('should not be able to get statement operation of user that does not exist', () => {
     expect(async () => {
       const user = await usersRepositoryInMemory.create({
         name: 'Test name',

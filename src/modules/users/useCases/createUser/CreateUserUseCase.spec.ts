@@ -26,7 +26,7 @@ describe('Create user use case', () => {
     expect(user.password).not.toBe(password);
   })
 
-  it('should not be able to create a user that already exists', async () => {
+  it('should not be able to create a user that already exists', () => {
     expect(async () => {
       const user = {
         name: 'Test name',

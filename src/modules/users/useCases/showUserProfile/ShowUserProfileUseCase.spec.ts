@@ -26,7 +26,7 @@ describe('Show user profile use case', () => {
     expect(userProfile).toEqual(user);
   })
 
-  it('should not be able to show user that does not exist', async () => {
+  it('should not be able to show user that does not exist', () => {
     expect(async () => {
       await showUserProfileUseCase.execute('user_does_not_exist');
     }).rejects.toBeInstanceOf(ShowUserProfileError);

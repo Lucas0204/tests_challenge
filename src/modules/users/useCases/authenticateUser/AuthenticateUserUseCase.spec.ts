@@ -36,7 +36,7 @@ describe('Authenticate user use case', () => {
     expect(authInfo.user.name).toEqual(user.name);
   })
 
-  it('should not be able to authenticate a user that does not exists', async () => {
+  it('should not be able to authenticate a user that does not exists', () => {
     expect(async () => {
       const user = {
         name: 'Test name',
@@ -48,7 +48,7 @@ describe('Authenticate user use case', () => {
     }).rejects.toBeInstanceOf(IncorrectEmailOrPasswordError);
   })
 
-  it('should not be able to authenticate a user with incorrect password', async () => {
+  it('should not be able to authenticate a user with incorrect password', () => {
     expect(async () => {
       const password = 'mypassword';
       const passwordHash = await hash(password, 8);
