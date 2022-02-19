@@ -23,24 +23,24 @@ describe('Create user controller', () => {
 
   it('should be able to create a new user', async () => {
     const response = await request(app)
-      .post('/api/v1/users')
-      .send({
-        name: 'Test name',
-        email: 'test@mail.com',
-        password: 'mypassword'
-      });
+    .post('/api/v1/users')
+    .send({
+      name: 'Test name',
+      email: 'test@mail.com',
+      password: 'mypassword'
+    });
 
     expect(response.status).toBe(201);
   })
 
   it('should not be able to create a user that already exists', async () => {
     const response = await request(app)
-      .post('/api/v1/users')
-      .send({
-        name: 'Test name',
-        email: 'test@mail.com',
-        password: 'mypassword'
-      });
+    .post('/api/v1/users')
+    .send({
+      name: 'Test name',
+      email: 'test@mail.com',
+      password: 'mypassword'
+    });
 
     const error = new CreateUserError();
     const expectedErrorMessage = JSON.stringify({
